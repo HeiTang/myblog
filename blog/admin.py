@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Post,Tag
+from .models import Post,Tag,commodity
 
 # Register your models here.
 
@@ -8,7 +8,6 @@ class TagInline(admin.TabularInline):
 
 class PostAdmin(admin.ModelAdmin):
     list_display = ('title','text','created_date')
-    # fields  = ('title', 'text','published_date')
     search_fields = ('title',)
     inlines = [TagInline]
     fieldsets = (
@@ -19,8 +18,13 @@ class PostAdmin(admin.ModelAdmin):
             'classes': ('collapse',),
             'fields': ('created_date',),
         }]
- 
     )
+
+class commodityAdmin(admin.ModelAdmin):
+    list_display = ('name','price','place','specification','created')
+    search_fields = ('name',)
+
 
 admin.site.register(Post,PostAdmin)
 admin.site.register(Tag)
+admin.site.register(commodity, commodityAdmin)

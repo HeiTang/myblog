@@ -23,3 +23,16 @@ class Tag(models.Model):
     
     def __str__(self):
         return self.name
+
+
+class commodity(models.Model):
+    name = models.CharField(max_length=255,verbose_name='商品名稱')
+    price = models.PositiveSmallIntegerField(verbose_name='商品價格')
+    place = models.CharField(max_length=255,verbose_name='商品所在地點')
+    # photo = models.ImageField(upload_to="/data/images/",verbose_name='商品圖片/狀態') 
+    specification= models.CharField(max_length=255,verbose_name='商品規格')
+    created = models.DateTimeField(auto_now_add=True, editable=False)
+    # category = models.ForeignKey(category,on_delete=models.CASCADE, related_name="commodity",verbose_name='商品類別')
+
+    def __str__(self):
+        return self.name
