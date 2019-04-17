@@ -21,7 +21,8 @@ class PostAdmin(admin.ModelAdmin):
     )
 
 class commodityAdmin(admin.ModelAdmin):
-    list_display = ('name','price','place','specification','created')
+    list_display = ('name','class_s','price','place','specification','created','token')
+    fields = ('name','class_s','price','place','specification','created')
     search_fields = ('name',)
 
 
