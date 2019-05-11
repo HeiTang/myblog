@@ -32,12 +32,16 @@ ALLOWED_HOSTS = []
 
 INSTALLED_APPS = [
     'blog',
-    'django.contrib.admin',
-    'django.contrib.auth',
-    'django.contrib.contenttypes',
+    # 'django.contrib.admin',
+    # 'django.contrib.auth',
+    # 'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'bootstrap4', # new
+    'django.contrib.admin',
+    'django.contrib.auth',
+    'django.contrib.contenttypes',
 ]
 
 MIDDLEWARE = [
@@ -55,7 +59,7 @@ ROOT_URLCONF = 'myblog.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': ['templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -127,3 +131,8 @@ STATIC_URL = '/static/'
 # # Activate Django-Heroku.
 # django_heroku.settings(locals())
 
+LOGIN_REDIRECT_URL = '/'
+
+LOGIN_URL = '/login/'
+
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
